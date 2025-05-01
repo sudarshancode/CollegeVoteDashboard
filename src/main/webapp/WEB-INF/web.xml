@@ -148,6 +148,25 @@
     <url-pattern>/AddNoticeServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>DeleteNoticeServlet</servlet-name>
+    <servlet-class>mng.election.DeleteNoticeServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+	    <servlet-name>DeleteNoticeServlet</servlet-name>
+	    <url-pattern>/DeleteNoticeServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- For Logout -->
+  <servlet>
+    <servlet-name>AddLogout</servlet-name>
+    <servlet-class>com.example.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddLogout</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  
   <!-- Session Configuration -->
   <session-config>
     <session-timeout>5</session-timeout>  <!-- Timeout in minutes -->
