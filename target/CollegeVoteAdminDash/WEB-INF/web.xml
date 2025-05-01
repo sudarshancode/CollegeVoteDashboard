@@ -1,0 +1,155 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  
+  <welcome-file-list>
+    
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  	<welcome-file>index.html</welcome-file>
+  	<welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Login Servlet -->
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.example.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Candidate Servlets -->
+  <servlet>
+    <servlet-name>AddCandidateServlet</servlet-name>
+    <servlet-class>clg.candidate.AddCandidateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCandidateServlet</servlet-name>
+    <url-pattern>/AddCandidateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UpdateCandidateServlet</servlet-name>
+    <servlet-class>clg.candidate.UpdateCandidateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCandidateServlet</servlet-name>
+    <url-pattern>/UpdateCandidateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeleteCandidateServlet</servlet-name>
+    <servlet-class>clg.candidate.DeleteCandidateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCandidateServlet</servlet-name>
+    <url-pattern>/DeleteCandidateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>IdCandidateServlet</servlet-name>
+    <servlet-class>clg.candidate.IdCandidateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IdCandidateServlet</servlet-name>
+    <url-pattern>/IdCandidateServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Student Servlets -->
+  <servlet>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <servlet-class>clg.student.AddStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddStudentServlet</servlet-name>
+    <url-pattern>/AddStudentServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AlterAddStudentServlet</servlet-name>
+    <servlet-class>clg.student.AlterAddStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlterAddStudentServlet</servlet-name>
+    <url-pattern>/AlterAddStudentServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UpdateStudentServlet</servlet-name>
+    <servlet-class>clg.student.UpdateStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateStudentServlet</servlet-name>
+    <url-pattern>/UpdateStudentServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CodeStudentServlet</servlet-name>
+    <servlet-class>clg.student.CodeStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CodeStudentServlet</servlet-name>
+    <url-pattern>/CodeStudentServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteStudentServlet</servlet-name>
+    <servlet-class>clg.student.DeleteStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteStudentServlet</servlet-name>
+    <url-pattern>/DeleteStudentServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Election Servlets -->
+  <servlet>
+    <servlet-name>AddElectionServlet</servlet-name>
+    <servlet-class>mng.election.AddElectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddElectionServlet</servlet-name>
+    <url-pattern>/AddElectionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>IdElectionServlet</servlet-name>
+    <servlet-class>mng.election.IdElectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IdElectionServlet</servlet-name>
+    <url-pattern>/IdElectionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UpdateElectionServlet</servlet-name>
+    <servlet-class>mng.election.UpdateElectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateElectionServlet</servlet-name>
+    <url-pattern>/UpdateElectionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteElectionServlet</servlet-name>
+    <servlet-class>mng.election.DeleteElectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteElectionServlet</servlet-name>
+    <url-pattern>/DeleteElectionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <servlet-class>mng.election.AddNoticeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <url-pattern>/AddNoticeServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Session Configuration -->
+  <session-config>
+    <session-timeout>5</session-timeout>  <!-- Timeout in minutes -->
+  </session-config>
+</web-app>

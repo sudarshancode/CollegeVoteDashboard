@@ -1,0 +1,211 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e9ebef;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin: 10px 5px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items:center ;
+    font-size: 18px;
+}
+
+.sidebar ul li:hover {
+    background: #34495e;
+    border-radius: 5px;
+}
+.sidebar img{
+    width: 18px;
+    height: 18px;
+    margin-right: 3px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+header h1 {
+    color: #333;
+}
+
+header p {
+    color: #777;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.button-group img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.button-group button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.button-group #add-btn{
+    background-color: #02b805;
+}
+.button-group #update-btn{
+    background-color: #007bff;
+}
+.button-group #delete-btn{
+    background-color: #cd0000;
+}
+/*Hover button*/
+.button-group #add-btn:hover {
+    background-color: #016a01;
+}
+.button-group #update-btn:hover {
+    background-color: #0045b3;
+}
+.button-group #delete-btn:hover {
+    background-color: #6b0202;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-container h2 {
+    margin-top: 0;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#gender-div label{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#gender-div input{
+    width:5%;
+    padding: 3px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    background-color: #8cb62b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Candidate List */
+.candidate-list {
+    margin-top: 20px;
+}
+
+/* Candidate Cards */
+.cards { 
+    margin-top: 10px;
+    display: grid;
+    place-items: center;
+}
+.card {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    display: flex;
+    overflow: hidden;
+    justify-content: start;
+}
+.card #profile-photo{
+    margin: 0 auto;
+    width: 18%;
+    padding: 2px;
+}
+#profile-photo img{
+    width: 100%;
+    height:120px;
+    border-radius: 50%;
+    border: #0045b3 solid 2px;
+}
+.candidate-details{
+    width: 80%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.candidate-details .div1{
+    display: flex;
+    justify-content: space-between;
+}
+.candidate-details h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+.candidate-details p {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #666;
+}
+.candidate-details img{
+    width: 30px;
+    height: 30px;
+}
+
