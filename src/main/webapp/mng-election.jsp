@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*,java.util.*,java.io.*, java.util.Base64" %>
 <%@ page import="com.example.DatabaseConnection" %>
 
 <!DOCTYPE html>
@@ -87,9 +87,11 @@
         <!--Add Notice-->
         <div id="addNoticeForm" class="form-container" style="display: none;">
             <h2>Add Notice</h2>
-            <form id="noticeForm" action="AddNoticeServlet" method="post">
+            <form id="noticeForm" action="AddNoticeServlet" method="post" enctype="multipart/form-data">
+            	<label for="notice-bg">Notice Background:</label>
+            	<input type="file" id="notice-bg" name="notice-bg" required >
+            	
                 <label for="notice">Notice:</label>
-                
                 <textarea type="text" id="notice" name="notice" placeholder="Enter new notice" required></textarea><br><br>
 
                 <button type="submit">Add Notice</button>
@@ -147,8 +149,6 @@
         %>
         </div>
         
-		
-		
 		<%
         	Connection connection=null;
         	Statement statement=null;
@@ -166,13 +166,27 @@
                     <tr>
                         <th>Notice Id</th>
                         <th>Notice Body</th>
+                        <th>Notice Background</th>
                         <th>Delete Notice</th>
                     </tr>
                 </thead>
-                <% while(res.next()){ %>
+                <% while(res.next()){
+                	byte[] imgData = res.getBytes("notice_bg");
+                    String base64Image = "";
+                    if (imgData != null) {
+                        base64Image = Base64.getEncoder().encodeToString(imgData);
+                    }
+                %>
                 <tbody>
                     <td><%= res.getInt("notice_id") %></td>
                     <td><%= res.getString("notice_text") %></td>
+                    <td>
+                    	<% if (!base64Image.isEmpty()) { %>
+                			<img style="width:50px;height:35px;" src="data:image/jpeg;base64,<%= base64Image %>" alt="Image"/>
+            			<% } else { %>
+                			No Image
+            			<% } %>
+                    </td>
                     <td><a href="DeleteNoticeServlet?id=<%= res.getInt("notice_id") %>" 
                    		onclick="return confirm('Are you sure you want to delete this notice?');">
                    		<button>Delete</button>

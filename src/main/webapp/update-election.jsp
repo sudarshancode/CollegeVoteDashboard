@@ -54,7 +54,7 @@
                     </select>
                 </div><br>
    
-                <button type="submit">Update Student</button>
+                <button type="submit">Update Election</button>
             </form>
 		</div>
     </div>
