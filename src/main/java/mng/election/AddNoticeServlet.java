@@ -21,6 +21,7 @@ import com.example.DatabaseConnection;
 public class AddNoticeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String notice_title=request.getParameter("notice_title");
 		String notice=request.getParameter("notice");
 		Part noticeBg=request.getPart("notice-bg");
 		
@@ -28,12 +29,13 @@ public class AddNoticeServlet extends HttpServlet {
 		
 		InputStream inputStream=noticeBg.getInputStream();
 		
-		String insertQuery="INSERT INTO vote_notice (notice_text,notice_bg) VALUES (?,?);";
+		String insertQuery="INSERT INTO vote_notice (notice_title,notice_text,notice_bg) VALUES (?,?,?);";
 		try {
 			PreparedStatement pst=conn.prepareStatement(insertQuery);
 			
-			pst.setString(1, notice);
-			pst.setBlob(2, inputStream);
+			pst.setString(1, notice_title);
+			pst.setString(2, notice);
+			pst.setBlob(3, inputStream);
 			
 			int result=pst.executeUpdate();
 			

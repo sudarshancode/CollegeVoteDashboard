@@ -88,12 +88,14 @@
         <div id="addNoticeForm" class="form-container" style="display: none;">
             <h2>Add Notice</h2>
             <form id="noticeForm" action="AddNoticeServlet" method="post" enctype="multipart/form-data">
-            	<label for="notice-bg">Notice Background:</label>
-            	<input type="file" id="notice-bg" name="notice-bg" required >
-            	
-                <label for="notice">Notice:</label>
+            	<label for="notice_title">Notice Title:</label>
+            	<input type="text" id="notice_title" name="notice_title" placeholder="Enter notice title">
+                
+                <label for="notice">Notice Description:</label>
                 <textarea type="text" id="notice" name="notice" placeholder="Enter new notice" required></textarea><br><br>
-
+				
+				<label for="notice-bg">Notice Background:</label>
+            	<input type="file" id="notice-bg" name="notice-bg" required >
                 <button type="submit">Add Notice</button>
             </form>
         </div>
@@ -165,6 +167,7 @@
                 <thead>
                     <tr>
                         <th>Notice Id</th>
+                        <th>Notice Title</th>
                         <th>Notice Body</th>
                         <th>Notice Background</th>
                         <th>Delete Notice</th>
@@ -179,6 +182,7 @@
                 %>
                 <tbody>
                     <td><%= res.getInt("notice_id") %></td>
+                    <td><%= res.getString("notice_title") %></td>
                     <td><%= res.getString("notice_text") %></td>
                     <td>
                     	<% if (!base64Image.isEmpty()) { %>

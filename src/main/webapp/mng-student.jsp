@@ -11,6 +11,12 @@
     <title>Manage Student</title>
 </head>
 <body>
+	<%-- Check if user is logged in --%>
+	<%
+    	if (session.getAttribute("username") == null) {
+        	response.sendRedirect("index.jsp"); // Redirect to login page if not logged in
+    	}
+	%>
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>Admin Panel</h2>
