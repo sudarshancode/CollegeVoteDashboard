@@ -178,7 +178,6 @@
     </div>
 
     <script src="Js/student.js">
-
     </script>
 </body>
 </html>

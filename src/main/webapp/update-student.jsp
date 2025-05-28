@@ -66,11 +66,23 @@
                 <input type="date" id="studentDob" name="studentDob" value="<%= request.getAttribute("studentDob") %>" placeholder="Student Date of Birth" required>
    				
    				<label for="studentPhoto">Student Photo:</label>
-                <input type="file" id="studentPhoto" name="studentPhoto" required>
+                <input type="file" id="studentPhoto" name="studentPhoto"  onchange="checkFileSizeInput(this)" required>
    				
                 <button type="submit">Update Student</button>
             </form>
 		</div>
     </div>
 </body>
+<script>
+    function checkFileSizeInput(input) {
+        const file = input.files[0];
+        if (file) {
+            const sizeInKB = file.size / 1024;
+            if (sizeInKB > 150) {
+                alert("Image size must be 150KB or less. Your file is " + Math.round(sizeInKB) + "KB");
+                input.value = ""; // Clear the input so user has to select a new file
+            }
+        }
+    }
+</script>
 </html>
