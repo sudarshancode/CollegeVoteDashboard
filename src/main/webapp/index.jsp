@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/index-style.css"> 
     <title>Admin Login</title>
 </head>
-<body>
+<body> 
     <div id="main-div">
         <div id="header">
         <%String error=(String) request.getAttribute("userId"); %>
