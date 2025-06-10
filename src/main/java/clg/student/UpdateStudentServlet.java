@@ -19,7 +19,7 @@ import jakarta.servlet.http.Part;
 import com.example.DatabaseConnection;
 
 
-@MultipartConfig
+
 public class UpdateStudentServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

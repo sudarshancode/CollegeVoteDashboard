@@ -20,8 +20,11 @@ import jakarta.servlet.http.Part;
 
 import com.example.DatabaseConnection;
 
-
-@MultipartConfig
+@MultipartConfig(
+	    fileSizeThreshold = 1024 * 1024,  // 1MB - memory threshold
+	    maxFileSize = 200 * 1024,         // 200KB per file
+	    maxRequestSize = 1 * 1024 * 1024  // 1MB total request size
+	)
 public class AlterAddStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

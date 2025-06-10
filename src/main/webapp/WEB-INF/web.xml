@@ -171,4 +171,10 @@
   <session-config>
     <session-timeout>5</session-timeout>  <!-- Timeout in minutes -->
   </session-config>
+  
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/errorPage.jsp</location>
+  </error-page>
+  
 </web-app>

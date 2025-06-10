@@ -29,7 +29,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.example.DatabaseConnection;
 
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 5)
+@MultipartConfig(
+	    fileSizeThreshold = 1024 * 1024,  // 1MB - memory threshold
+	    maxFileSize = 200 * 1024,         // 200KB per file
+	    maxRequestSize = 1 * 1024 * 1024  // 1MB total request size
+	)
 public class AddStudentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Part filePart=request.getPart("file");
