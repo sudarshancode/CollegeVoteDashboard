@@ -50,13 +50,22 @@ public class AddElectionServlet extends HttpServlet {
 				request.getSession().setAttribute("addElection", "Failed to Create Election");
 			}
 			response.sendRedirect("mng-election.jsp");
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+			
+			HttpSession session=request.getSession();
+			session.setAttribute("errorMessage", e.getMessage());
+			response.sendRedirect("errorPage.jsp");
+			
+		}finally {
 			try {
 				if (conn != null) conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
+				
+				HttpSession session=request.getSession();
+				session.setAttribute("errorMessage", e.getMessage());
+				response.sendRedirect("errorPage.jsp");
 			}
 		}
 	}

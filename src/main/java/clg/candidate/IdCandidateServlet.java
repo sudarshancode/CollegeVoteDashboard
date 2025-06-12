@@ -53,6 +53,17 @@ public class IdCandidateServlet extends HttpServlet {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			HttpSession session2=request.getSession();
+			session2.setAttribute("errorMessage", e.getMessage());
+			
+			response.sendRedirect("errorPage.jsp");
+		}catch (Exception e) {
+			//Catch any other exception
+			e.printStackTrace();
+			
+			HttpSession session2 = request.getSession();
+			session2.setAttribute("errorMessage", e.getMessage());
+			response.sendRedirect("errorPage.jsp");
 		}
 	}
 }

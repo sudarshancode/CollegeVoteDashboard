@@ -49,6 +49,17 @@ public class DeleteCandidateServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			HttpSession session=request.getSession();
+			session.setAttribute("errorMessage", e.getMessage());
+			
+			response.sendRedirect("errorPage.jsp");
+		}catch (Exception e) {
+			//Catch any other exception
+			e.printStackTrace();
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("errorMessage", e.getMessage());
+			response.sendRedirect("errorPage.jsp");
 		}
         
 	}

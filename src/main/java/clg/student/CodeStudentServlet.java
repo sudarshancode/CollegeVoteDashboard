@@ -51,6 +51,11 @@ public class CodeStudentServlet extends HttpServlet {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("errorMessage", e.getMessage());
+
+			response.sendRedirect("errorPage.jsp");
 		}
 	}
 

@@ -69,6 +69,10 @@ public class UpdateStudentServlet extends HttpServlet {
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			HttpSession session=request.getSession();
+			session.setAttribute("errorMessage", e.getMessage());
+			
+			response.sendRedirect("errorPage.jsp");
 		}
 	}
 
