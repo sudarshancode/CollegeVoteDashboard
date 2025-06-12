@@ -39,7 +39,12 @@ public class UpdateStudentServlet extends HttpServlet {
 		String studentDob=request.getParameter("studentDob");
 		Part imagePart=request.getPart("studentPhoto");
 		
-		InputStream inputStream=imagePart.getInputStream();
+		InputStream inputStream = null;
+        if (imagePart != null && imagePart.getSize() > 0) {
+            inputStream = imagePart.getInputStream();
+        }
+		
+		
 		String updateQueary="UPDATE student SET stcode=?, stname=? , stroll=?,stdepartment=?,stphno=?,stgmail=?,stpassword=?,stadds=?,stdob=?,image=? WHERE stcode=?;";
 		
 		try {

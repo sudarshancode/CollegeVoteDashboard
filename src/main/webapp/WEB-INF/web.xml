@@ -169,7 +169,7 @@
   
   <!-- Session Configuration -->
   <session-config>
-    <session-timeout>5</session-timeout>  <!-- Timeout in minutes -->
+    <session-timeout>30</session-timeout>  <!-- Timeout in minutes -->
   </session-config>
   
   
