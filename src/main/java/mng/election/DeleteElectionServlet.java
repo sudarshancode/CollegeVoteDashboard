@@ -21,6 +21,7 @@ public class DeleteElectionServlet extends HttpServlet {
 		int electionId=Integer.parseInt(request.getParameter("electionId"));
 		
 		String Query="DELETE FROM election_mng where election_id=?;";
+		String resetVoteStatusQuery = "UPDATE student_status SET vote_status = 0;";
 		
 		Connection conn=DatabaseConnection.getConnection();
 		
@@ -32,6 +33,10 @@ public class DeleteElectionServlet extends HttpServlet {
 			int result=pst.executeUpdate();
 			
 			if(result>0) {
+				PreparedStatement resetStmt = conn.prepareStatement(resetVoteStatusQuery);
+				resetStmt.executeUpdate();
+				resetStmt.close();
+				
 				response.sendRedirect("mng-election.jsp?message=Election deleted successfully");
             }else {
                 response.sendRedirect("mng-election.jsp?error=Election ID not found");

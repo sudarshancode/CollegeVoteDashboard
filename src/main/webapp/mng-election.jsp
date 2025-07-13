@@ -16,9 +16,9 @@
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="dashboard.jsp"><img src="icon/house.png"> Dashboard</a></li>
-            <li><a href="#"><img src="icon/user.png"> Profile</a></li>
-            <li><a href="#"><img src="icon/cogwheel.png"> Settings</a></li>
-            <li><a href="#"><img src="icon/logout.png"> Logout</a></li>
+            <li><a href="admin-profile.jsp"><img src="icon/user.png"> Profile</a></li>
+            <li><a href="admin-setting.jsp"><img src="icon/cogwheel.png"> Settings</a></li>
+            <li><a href="LogoutServlet"><img src="icon/logout.png"> Logout</a></li>
         </ul>
     </div>
 

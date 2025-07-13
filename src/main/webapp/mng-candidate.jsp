@@ -22,8 +22,8 @@
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="dashboard.jsp"><img src="icon/house.png"> Dashboard</a></li>
-            <li><a href="#"><img src="icon/user.png"> Profile</a></li>
-            <li><a href="#"><img src="icon/cogwheel.png"> Settings</a></li>
+            <li><a href="admin-profile.jsp"><img src="icon/user.png"> Profile</a></li>
+            <li><a href="admin-setting.jsp"><img src="icon/cogwheel.png"> Settings</a></li>
             <li><a href="LogoutServlet"><img src="icon/logout.png"> Logout</a></li>
         </ul>
     </div>
@@ -94,7 +94,7 @@
             <h2>Delete Candidate</h2>
             <form id="candidateForm" action="DeleteCandidateServlet" method="post">
                 <label for="candidateId">Candidate Id:</label>
-                <input type="number" id="candidateId" name="candidateId" required>
+                <input type="number" id="candidateId" name="candidateId" placeholder="Candidate Id" required>
 
                 <button type="submit">Delete Candidate</button>
             </form>

@@ -1,3 +1,5 @@
+<%@ page import="java.sql.*, com.example.DatabaseConnection" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +38,9 @@
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="dashboard.jsp"><img src="icon/house.png"> Dashboard</a></li>
-            <li><a href="#"><img src="icon/user.png"> Profile</a></li>
-            <li><a href="#"><img src="icon/cogwheel.png"> Settings</a></li>
-            <li><a href="#"><img src="icon/logout.png"> Logout</a></li>
+            <li><a href="admin-profile.jsp"><img src="icon/user.png"> Profile</a></li>
+            <li><a href="admin-setting.jsp"><img src="icon/cogwheel.png"> Settings</a></li>
+            <li><a href="LogoutServlet"><img src="icon/logout.png"> Logout</a></li>
         </ul>
     </div>
 
@@ -63,6 +65,67 @@
                 <img src="VoteChart?type=pie" alt="Pie Chart">
             </div>
         </div>
+        
+        <%
+		    Connection conn = null;
+		    Statement stmt = null;
+		    ResultSet rs = null;
+		
+		    try {
+				
+		    	Connection conn1 = com.example.DatabaseConnection.getConnection();
+		
+		        String query = "SELECT v.c_id, c.c_name, c.c_image,c.c_partyname, c.c_partylogo, v.total_votes " +
+		                       "FROM vote_count v JOIN candidate c ON v.c_id = c.c_id";
+		        stmt = conn1.createStatement();
+		        rs = stmt.executeQuery(query);
+		%>
+        
+        <div class="table-container">
+		     <table>
+		      <thead>
+		        <tr>
+		          <th>ID</th>
+		          <th>Image</th>
+		          <th>Name</th>
+		          <th>Party Name</th>
+		          <th>Party Flag</th>
+		          <th>Total Vote</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		       <%
+                while (rs.next()) {
+                    int id = rs.getInt("c_id");
+                    String name = rs.getString("c_name");
+                    String logo = rs.getString("c_image");
+                    String partyName = rs.getString("c_partyname");
+                    String partyLogo = rs.getString("c_partylogo");
+                    int votes = rs.getInt("total_votes");
+            	%>
+		        <tr>
+		          <td><%= id %></td>
+		          <td><img class="img-class" src="<%= logo %>" alt="No Img"></td>
+		          <td><%= name %></td>
+		          <td><%=partyName %></td>
+		          <td><img class="logo-class" src="<%=partyLogo %>" alt="No Flag"></td>
+		          <td><%= votes %></td>
+		        </tr>
+		        <%
+                }
+            	%>
+		      </tbody>
+		    </table>
+        </div>
+        <%
+		    } catch (Exception e) {
+		        out.println("Error: " + e.getMessage());
+		    } finally {
+		        if (rs != null) try { rs.close(); } catch (Exception e) {}
+		        if (stmt != null) try { stmt.close(); } catch (Exception e) {}
+		        if (conn != null) try { conn.close(); } catch (Exception e) {}
+		    }
+		%>
     </div>
 </body>
 </html>

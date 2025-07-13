@@ -157,6 +157,15 @@
 	    <url-pattern>/DeleteNoticeServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>clg.admin.ChangePasswordServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+	    <servlet-name>ChangePasswordServlet</servlet-name>
+	    <url-pattern>/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+  
   <!-- For Logout -->
   <servlet>
     <servlet-name>AddLogout</servlet-name>

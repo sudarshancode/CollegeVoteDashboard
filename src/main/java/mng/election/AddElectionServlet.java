@@ -3,6 +3,7 @@ package mng.election;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -24,32 +25,46 @@ public class AddElectionServlet extends HttpServlet {
 		String status = request.getParameter("status");
 
 		String insertQuery = "INSERT INTO election_mng (election_name, election_start, election_end, election_status) VALUES (?,?,?,?);";
-
+		String checkQuery = "SELECT COUNT(*) FROM election_mng";
+		
 		Connection conn = DatabaseConnection.getConnection();
 		
 		try {
-			PreparedStatement pst = conn.prepareStatement(insertQuery);
+			
+			PreparedStatement checkPst = conn.prepareStatement(checkQuery);
+			ResultSet rs = checkPst.executeQuery();
+			
+			rs.next();
+			int count = rs.getInt(1);
+			
+			if(count==0) {
+				PreparedStatement pst = conn.prepareStatement(insertQuery);
 
-			pst.setString(1, electionName);
-			pst.setString(2, startDate);
-			pst.setString(3, endDate);
+				pst.setString(1, electionName);
+				pst.setString(2, startDate);
+				pst.setString(3, endDate);
 
-			if (status.equals("upcoming")) {
-				pst.setInt(4, 0);
-			} else if (status.equals("ongoing")) {
-				pst.setInt(4, 1);
-			} else {
-				pst.setInt(4, 2);
-			}
+				if (status.equals("upcoming")) {
+					pst.setInt(4, 0);
+				} else if (status.equals("ongoing")) {
+					pst.setInt(4, 1);
+				} else {
+					pst.setInt(4, 2);
+				}
 
-			int result = pst.executeUpdate();
+				int result = pst.executeUpdate();
 
-			if (result > 0) {
-				request.getSession().setAttribute("addElection", "Election Created Successfully");
-			} else {
-				request.getSession().setAttribute("addElection", "Failed to Create Election");
+				if (result > 0) {
+					request.getSession().setAttribute("addElection", "Election Created Successfully");
+				} else {
+					request.getSession().setAttribute("addElection", "Failed to Create Election");
+				}
+				
+			}else {
+				request.getSession().setAttribute("addElection", "Election Already Exists. Only one election allowed.");
 			}
 			response.sendRedirect("mng-election.jsp");
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			
