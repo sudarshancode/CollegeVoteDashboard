@@ -38,29 +38,29 @@
 			
 			<form id="studentFormUpdate" action="UpdateStudentServlet" method="post" enctype="multipart/form-data" >
 				
-				<label for="studentCode">Student Code: <span style="color:green "><%= request.getAttribute("studentCode") !=null ? request.getAttribute("studentCode") : " "  %></span></label>
-                <input type="hidden" id="studentCode" name="studentCode" value="<%= request.getAttribute("studentCode") !=null ? request.getAttribute("studentCode") : " "  %>" placeholder="Student Code" required>	
+				<label for="studentCode">Student Code: <span style="color:green "><%= request.getAttribute("studentCode") !=null ? request.getAttribute("studentCode") : ""  %></span></label>
+                <input type="hidden" id="studentCode" name="studentCode" value="<%= request.getAttribute("studentCode") !=null ? request.getAttribute("studentCode") : ""  %>" placeholder="Student Code" required>	
                 
                 <label for="studentName">Student Name:</label>
-                <input type="text" id="studentName" name="studentName" value="<%= request.getAttribute("studentName") !=null ? request.getAttribute("studentName") : " " %>"  placeholder="Student Name" required>
+                <input type="text" id="studentName" name="studentName" value="<%= request.getAttribute("studentName") !=null ? request.getAttribute("studentName") : "" %>"  placeholder="Student Name" required>
 
                 <label for="studentRoll">Student Roll:</label>
-                <input type="text" id="studentRoll" name="studentRoll" value="<%= request.getAttribute("studentRoll") !=null ? request.getAttribute("studentRoll") : " " %>" placeholder="Student Roll" required>
+                <input type="text" id="studentRoll" name="studentRoll" value="<%= request.getAttribute("studentRoll") !=null ? request.getAttribute("studentRoll") : "" %>" placeholder="Student Roll" required>
 
                 <label for="studentDepartment">Department:</label>
-                <input type="text" id="studentDepartment" name="studentDepartment" value="<%= request.getAttribute("studentDept") !=null ? request.getAttribute("studentDept") : " " %>" placeholder="Student Department" required>
+                <input type="text" id="studentDepartment" name="studentDepartment" value="<%= request.getAttribute("studentDept") !=null ? request.getAttribute("studentDept") : "" %>" placeholder="Student Department" required>
 
                 <label for="studentPhno">Phone No.:</label>
-                <input type="text" id="studentPhno" name="studentPhno" value="<%= request.getAttribute("studentPhno") !=null ? request.getAttribute("studentPhno") : " " %>" placeholder="Student Ph No." required>
+                <input type="text" id="studentPhno" name="studentPhno" value="<%= request.getAttribute("studentPhno") !=null ? request.getAttribute("studentPhno") : "" %>" placeholder="Student Ph No." required>
 
 				<label for="studentEmail">Email Address:</label>
-                <input type="text" id="studentEmail" name="studentEmail" value="<%= request.getAttribute("studentEmail") !=null ? request.getAttribute("studentEmail") : " " %>" placeholder="Student Email Address" required>
+                <input type="text" id="studentEmail" name="studentEmail" value="<%= request.getAttribute("studentEmail") !=null ? request.getAttribute("studentEmail") : "" %>" placeholder="Student Email Address" required>
 
 				<label for="studentPassword">Password:</label>
-                <input type="text" id="studentPassword" name="studentPassword" value="<%= request.getAttribute("studentPassword") !=null ? request.getAttribute("studentPassword") : " " %>" placeholder="Student Password" required>
+                <input type="text" id="studentPassword" name="studentPassword" value="<%= request.getAttribute("studentPassword") !=null ? request.getAttribute("studentPassword") : "" %>" placeholder="Student Password" required>
 
 				<label for="studentAddress">Address:</label>
-                <input type="text" id="studentAddress" name="studentAddress" value="<%= request.getAttribute("studentAddress") !=null ? request.getAttribute("studentAddress") : " " %>" placeholder="Student Address" required>
+                <input type="text" id="studentAddress" name="studentAddress" value="<%= request.getAttribute("studentAddress") !=null ? request.getAttribute("studentAddress") : "" %>" placeholder="Student Address" required>
 
                 <label for="studentDob">Date of birth:</label>
                 <input type="date" id="studentDob" name="studentDob" value="<%= request.getAttribute("studentDob") %>" placeholder="Student Date of Birth" required>
