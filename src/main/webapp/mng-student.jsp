@@ -138,7 +138,6 @@
                         <th>DOB</th>
                         <th>Phone Number</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Image</th>
                     </tr>
                 </thead>
@@ -158,7 +157,6 @@
                     <td><%= rs.getString("stdob") %></td>
                     <td>+91<%= rs.getString("stphno") %></td>
                     <td><%= rs.getString("stgmail") %></td>
-                    <td><%= rs.getString("stpassword") %></td>
                      <td>
             		<% if (!base64Image.isEmpty()) { %>
                 			<img style="width:50px;height:35px;" src="data:image/jpeg;base64,<%= base64Image %>" alt="Image"/>

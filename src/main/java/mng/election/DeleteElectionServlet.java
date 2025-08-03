@@ -22,6 +22,7 @@ public class DeleteElectionServlet extends HttpServlet {
 		
 		String Query="DELETE FROM election_mng where election_id=?;";
 		String resetVoteStatusQuery = "UPDATE student_status SET vote_status = 0;";
+		String resetVoteCountQuery = "UPDATE vote_count SET total_votes = 0;";
 		
 		Connection conn=DatabaseConnection.getConnection();
 		
@@ -36,6 +37,11 @@ public class DeleteElectionServlet extends HttpServlet {
 				PreparedStatement resetStmt = conn.prepareStatement(resetVoteStatusQuery);
 				resetStmt.executeUpdate();
 				resetStmt.close();
+				
+				PreparedStatement resetCountStmt = conn.prepareStatement(resetVoteCountQuery);
+				resetCountStmt.executeUpdate();
+				resetCountStmt.close();
+
 				
 				response.sendRedirect("mng-election.jsp?message=Election deleted successfully");
             }else {

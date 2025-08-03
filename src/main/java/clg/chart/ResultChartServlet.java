@@ -47,9 +47,9 @@ public class ResultChartServlet extends HttpServlet {
 
         // Party -> Color mapping
         Map<String, Color> partyColorMap = new HashMap<>();
-        partyColorMap.put("BJP", new Color(255, 153, 0));
-        partyColorMap.put("Congress", new Color(0, 102, 204));
-        partyColorMap.put("TMC", new Color(0, 153, 0));
+        partyColorMap.put("Pen Party", new Color(255, 153, 0));
+        partyColorMap.put("Book Party", new Color(0, 102, 204));
+        partyColorMap.put("Boat", new Color(0, 153, 0));
         partyColorMap.put("CPIM", new Color(204, 0, 0));
         partyColorMap.put("Independent", new Color(102, 102, 102));
 
